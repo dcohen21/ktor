@@ -171,28 +171,28 @@ allprojects {
     }
 }
 
-task rootAllTest(type: org.jetbrains.kotlin.gradle.testing.internal.KotlinTestReport) {
-    def rootAllTest = it
-    destinationDir = new File(project.buildDir, "reports/tests/rootAllTest")
-
-    allprojects {
-        it.afterEvaluate {
-            if (it.tasks.findByName("allTests") != null) {
-                def projectTests = it.tasks.named("allTests")
-                rootAllTest.addChild(projectTests)
-                rootAllTest.dependsOn(projectTests)
-            }
-        }
-    }
-
-    beforeEvaluate {
-        project.gradle.taskGraph.whenReady { graph ->
-            rootAllTest.maybeOverrideReporting(graph)
-        }
-    }
-}
-
-build.dependsOn(rootAllTest)
+//task rootAllTest(type: org.jetbrains.kotlin.gradle.testing.internal.KotlinTestReport) {
+//    def rootAllTest = it
+//    destinationDir = new File(project.buildDir, "reports/tests/rootAllTest")
+//
+//    allprojects {
+//        it.afterEvaluate {
+//            if (it.tasks.findByName("allTests") != null) {
+//                def projectTests = it.tasks.named("allTests")
+//                rootAllTest.addChild(projectTests)
+//                rootAllTest.dependsOn(projectTests)
+//            }
+//        }
+//    }
+//
+//    beforeEvaluate {
+//        project.gradle.taskGraph.whenReady { graph ->
+//            rootAllTest.maybeOverrideReporting(graph)
+//        }
+//    }
+//}
+//
+//build.dependsOn(rootAllTest)
 
 println("Using Kotlin compiler version: $org.jetbrains.kotlin.config.KotlinCompilerVersion.VERSION")
 if (build_snapshot_train) {
