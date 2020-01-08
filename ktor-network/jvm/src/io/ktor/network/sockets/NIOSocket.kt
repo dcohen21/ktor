@@ -26,7 +26,7 @@ internal abstract class NIOSocketImpl<out S>(
     private val readerJob = AtomicReference<ReaderJob?>()
     private val writerJob = AtomicReference<WriterJob?>()
 
-    override val socketContext: CompletableJob = Job()
+    override val socketContext: CompletableJob = SupervisorJob()
 
     override val coroutineContext: CoroutineContext
         get() = socketContext
