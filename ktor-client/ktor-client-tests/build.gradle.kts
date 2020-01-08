@@ -111,8 +111,7 @@ if (!ideaActive) {
         "linuxX64Test",
         "iosTest",
         "mingwX64Test",
-        "jsNodeTest",
-        "jsBrowserTest"
+        "jsNodeTest"
     )
 }
 
