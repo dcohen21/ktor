@@ -52,9 +52,7 @@ buildscript {
     }
 }
 
-test {
-    exclude '**/*'
-}
+tasks.withType(Test) { enabled = false }
 
 ext.configuredVersion = project.hasProperty("releaseVersion") ? project.releaseVersion : project.version
 ext.globalM2 = "$buildDir/m2"
@@ -97,6 +95,7 @@ allprojects {
     group = "io.ktor"
     version = configuredVersion
     project.ext.hostManager = new HostManager()
+    tasks.withType(Test) { enabled = false }
 
     if (build_snapshot_train) {
         ext.kotlin_version = rootProject.properties['kotlin_snapshot_version']
