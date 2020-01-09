@@ -52,6 +52,10 @@ buildscript {
     }
 }
 
+test {
+    exclude '**/*'
+}
+
 ext.configuredVersion = project.hasProperty("releaseVersion") ? project.releaseVersion : project.version
 ext.globalM2 = "$buildDir/m2"
 ext.publishLocal = project.hasProperty("publishLocal")
